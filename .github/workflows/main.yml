@@ -22,6 +22,6 @@ jobs:
           script: |
             pwd  # Print working directory
             ls -la  # Check if the files exist
-            cd /home/ubuntu/test/Todos-nodejs
+            cd /home/ubuntu/test/Todos-nodejs/
             git pull origin test
 
