@@ -21,8 +21,12 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd /home/ubuntu/test/Todos-nodejs
+            git fetch --all
+            git reset --hard origin/test  # Ensures local branch matches remote
             git pull origin test
+            git log -1  # Show the latest commit to verify the pull worked
             sudo docker-compose down
             sudo docker-compose build --no-cache
             sudo docker-compose up -d
-            sudo docker ps -a 
+            sudo docker ps -a
+
